@@ -1,3 +1,4 @@
+import { CadastroComponent } from './cadastro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +16,7 @@ import { cadastroRoutes } from './cadastro.routing';
         RouterModule.forChild(cadastroRoutes)
     ],
     exports: [],
-    declarations: [],
+    declarations: [CadastroComponent],
     providers: [],
 })
-export class NameModule { }
+export class CadastroModule { }

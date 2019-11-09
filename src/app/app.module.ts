@@ -7,10 +7,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routing';
 import { LoginModule } from './login/login.module';
+import { CadastroModule } from './cadastro/cadastro.module';
+
+import { CadastroService } from './cadastro/cadastro.service';
+import { LoginService } from './login/login.service';
+
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -18,9 +25,10 @@ import { LoginModule } from './login/login.module';
     // BrowserAnimationsModule,
     HttpClientModule,
     LoginModule,
+    CadastroModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [CadastroService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

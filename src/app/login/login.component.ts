@@ -49,7 +49,7 @@ export class LoginComponent {
     }
 
     rotaCadastroUsuario(): void {
-
+        this.router.navigateByUrl('cadastro/cadastro-cliente');
     }
 
 }
