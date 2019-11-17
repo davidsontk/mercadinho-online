@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Usuario } from './../shared/models/usuario';
 import { environment } from 'src/environments/environment';
+import { Cliente } from '../shared/models/cliente';
 
 @Injectable()
 export class LoginService {
@@ -14,13 +14,11 @@ export class LoginService {
      * @description Metodo que envia ao back end os dados para logar
      * @returns TODO - verificar
      */
-    logar(usuario: Usuario){
-        let body = {
-            email: usuario.email,
-            password: usuario.password
-        };
-        console.log(body);
-        return this.httpClient.post(environment.url_api + 'login', body);
+    logar(usuario: Cliente) {
+        let headers: HttpHeaders = new HttpHeaders();
+        headers.append('Content-Type', 'application/json');
+        
+        return this.httpClient.post(environment.url_api + 'users/login', usuario);
     }
 
 

@@ -1,11 +1,12 @@
+import { NgModule } from '@angular/core';
+
+import { VendaComponent } from './venda.component';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
-import { LoginComponent } from './login.component';
-import { loginRoutes } from './login.routing';
+import { vendaRoutes } from './venda.routing';
 
 @NgModule({
     imports: [
@@ -13,12 +14,10 @@ import { loginRoutes } from './login.routing';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        RouterModule.forChild(loginRoutes)
+        RouterModule.forChild(vendaRoutes)
     ],
     exports: [],
-    declarations: [LoginComponent],
+    declarations: [VendaComponent],
     providers: [],
-    bootstrap: [LoginComponent]
-    
 })
-export class LoginModule { }
+export class VendaModule { }

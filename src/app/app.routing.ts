@@ -23,10 +23,10 @@ export const appRoutes: Routes = [
         path: 'menu',
         component: MenuComponent,
         children: [
-            // {
-            //     path: 'tela',
-            //     loadChildren: './tela-inicial/tela-inicial.module#TelaInicialModule' 
-            // },
+            {
+                path: 'venda',
+                loadChildren: './venda/venda.module#VendaModule' 
+            },
         ]
     },
     

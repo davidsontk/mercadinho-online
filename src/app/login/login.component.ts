@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { LoginService } from './login.service';
-import { Usuario } from '../shared/models/usuario';
+import { Cliente } from '../shared/models/cliente';
 
 @Component({
     selector: 'login-app',
@@ -21,7 +21,7 @@ export class LoginComponent {
 
     ngOnInit() {
         this.formLogin = this.fb.group({
-            loginCpf: ['',Validators.required],
+            loginCpf: ['', Validators.required],
             senha: ['', Validators.required]
         });
     }
@@ -29,17 +29,14 @@ export class LoginComponent {
 
     entrar() {
         // this.load = true;
-        let usuario: Usuario = new Usuario();
-        usuario.loginCpf = this.formLogin.get('loginCpf').value;
-        usuario.password = this.formLogin.get('senha').value;
-        console.log('logincpf ', usuario.loginCpf);
-        console.log('senha ', usuario.password);
-        this.loginService.logar(usuario).subscribe(
+        let cliente: Cliente = new Cliente();
+        cliente.cpf = this.formLogin.get('loginCpf').value;
+        cliente.senha = this.formLogin.get('senha').value;
+
+        this.loginService.logar(cliente).subscribe(
             (data: any) => {
-                console.log('DADO QUE CHEGOU ', data);
-                sessionStorage.setItem('user', JSON.stringify(data.usuario));
-                console.log('passei por aqui');
-                this.router.navigateByUrl('tela');
+                sessionStorage.setItem('cliente', JSON.stringify(data));
+                this.router.navigateByUrl('menu');
             },
             (error) => {
                 console.log('Erro ao tentar logar = ', error);

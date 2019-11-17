@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cliente } from '../shared/models/cliente';
 
 @Component({
     selector: 'menu-app',
@@ -8,12 +9,14 @@ import { Router } from '@angular/router';
 })
 
 export class MenuComponent implements OnInit {
-    nomeUser: string = 'nomeUser';
+    clienteLogado: Cliente = new Cliente();
     logado: boolean = false;
 
     constructor(private router: Router) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.clienteLogado = JSON.parse(sessionStorage.getItem('cliente'));
+    }
 
     rotaListaUsuarios(): void {
         this.router.navigateByUrl('admin');
@@ -22,8 +25,17 @@ export class MenuComponent implements OnInit {
     rotaCadastroUsuario(): void {
         this.router.navigateByUrl('/admin/cadastrar-usuario');
     }
-    
-    rotaAnuncio(){
+
+    rotaAnuncio(): void {
         this.router.navigateByUrl('/anuncio');
+    }
+
+    rotaMenuInicial(): void{
+        this.router.navigateByUrl('/menu/venda');
+    }
+
+    sair(): void {
+        sessionStorage.clear();
+        this.router.navigateByUrl('/login');
     }
 }
