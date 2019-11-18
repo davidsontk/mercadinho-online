@@ -36,7 +36,7 @@ export class LoginComponent {
         this.loginService.logar(cliente).subscribe(
             (data: any) => {
                 sessionStorage.setItem('cliente', JSON.stringify(data));
-                this.router.navigateByUrl('menu');
+                this.router.navigateByUrl('menu/venda');
             },
             (error) => {
                 console.log('Erro ao tentar logar = ', error);

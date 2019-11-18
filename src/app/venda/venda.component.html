@@ -1,5 +1,5 @@
 <div class="row m-0">
-    <h4>Venda</h4>
+    <h3>Venda</h3>
 </div>
 <div class="row m-0">
     <div class="table-overflow">
@@ -7,34 +7,43 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Quantidade</th>
+                    <th scope="col" class="text-center">Descrição</th>
+                    <th scope="col" class="text-center">Marca</th>
+                    <th scope="col" class="text-center">Grupo</th>
+                    <th scope="col" class="text-center">Valor Unitário</th>
+                    <th scope="col" class="text-center">Quantidade Disponível</th>
+                    <th scope="col" class="text-center">Quantidade Desejada</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td scope="row">Banana</td>
-                    <td>Natural</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Maça</td>
-                    <td>Natural</td>
-                    <td>
-                        <input type="button" id="btn_menos" name="btn_menos" value="-">
-                        <input type="button" id="btn_mais" name="btn_mais" value="+">
+                <tr *ngFor="let produto of listaProdutosDisponiveis">
+                    <th scope="row" class="text-center">{{produto.produto.codigo}}</th>
+                    <td scope="row" class="text-center">{{produto.produto.descricao}}</td>
+                    <td scope="row" class="text-center">{{produto.produto.codMarca.descricao}}</td>
+                    <td scope="row" class="text-center">{{produto.produto.codGrupo.descricao}}</td>
+                    <td scope="row" class="text-center">R$ {{produto.produto.valorUnitario}}</td>
+                    <td scope="row" class="text-center">{{produto.estoqueProduto.estoque}}</td>
+                    <td scope="row" class="text-center">
+                        <select (change)="mudarQuantidadeItens($event, produto)">
+                            <option *ngFor="let quantidade of quantidadeItens" value="{{quantidade}}">{{quantidade}}
+                            </option>
+                        </select>
                     </td>
-
                 </tr>
-                <!-- <tr class="tr-pointer" *ngFor="let usuario of listaUsuarios">
-                                        <th></th>
-                                        <td>{{ usuario.username }}</td>
-                                        <td>{{ usuario.email }}</td>
-                                        <td>{{ usuario.perfil }}</td>
-                                    </tr> -->
             </tbody>
         </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-right">
+            <div>
+                <span>Valor total: R$ {{valorTotalCompra}}</span>
+                <br/>
+            </div>
+            <br/>
+            <button class="btn btn-danger mr-2" (click)="limparListaCompra()">Limpar</button>
+            <button class="btn btn-success">Finalizar Compra</button>
+        </div>
     </div>
 </div>
