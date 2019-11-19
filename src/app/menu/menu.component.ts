@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
     }
 
     rotaMenuInicial(): void{
-        this.router.navigateByUrl('/menu/venda');
+        this.router.navigateByUrl('/menu/venda/venda-produtos');
     }
 
     sair(): void {

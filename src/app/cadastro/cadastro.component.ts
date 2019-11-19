@@ -37,7 +37,6 @@ export class CadastroComponent implements OnInit {
 
         this.cadastroService.cadastrarUsuario(cliente).subscribe(
             (data: any) => {
-                console.log('deu certo', data);
                 this.router.navigateByUrl('/login');
             },
             (error: any) => {

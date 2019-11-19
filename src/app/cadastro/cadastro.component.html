@@ -24,7 +24,7 @@
                     <label for="nome" class="col-md-2 control-label pdd-top-10">CPF*</label>
                     <div class="col-md-10">
                         <input class="form-control" formControlName="cpf" name="cpf" id="cpf"
-                            type="number">
+                            type="text">
                         <label class="error"
                             *ngIf="formCadastro.get('cpf').hasError('required') && formCadastro.get('cpf').touched">CPF
                             é obrigatório</label>

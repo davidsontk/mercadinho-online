@@ -1,6 +1,7 @@
 import { VendaService } from './venda.service';
 import { Component, OnInit } from '@angular/core';
 import { VendaProduto } from '../shared/models/venda';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'venda-app',
@@ -11,13 +12,13 @@ export class VendaComponent implements OnInit {
 
     //quantidade de itens
     quantidadeItens = [
-       0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
     ];
 
     valorTotalCompra: number = 0;
     listaProdutosDisponiveis = [];
     listaProdutosSelecionados: VendaProduto[] = [];
-    constructor(private vendaService: VendaService) { }
+    constructor(private vendaService: VendaService, private router: Router) { }
 
     ngOnInit() {
         this.buscarItensDeVenda();
@@ -40,18 +41,18 @@ export class VendaComponent implements OnInit {
                 if (this.listaProdutosSelecionados[i].codigo == produtoVenda.codigo) {
                     if (produtoVenda.quantidade == 0) {
                         this.listaProdutosSelecionados.splice(i, 1);
-                        
+
                         break;
                     } else if (this.listaProdutosSelecionados[i].quantidade != produtoVenda.quantidade) {
                         this.listaProdutosSelecionados[i].quantidade = produtoVenda.quantidade;
                         teveAlteracao = false;
-                        
+
                         break;
                     }
                 }
             }
 
-             if (teveAlteracao) {
+            if (teveAlteracao) {
                 this.listaProdutosSelecionados.push(produtoVenda);
             }
             this.calcularValorTotal();
@@ -81,5 +82,17 @@ export class VendaComponent implements OnInit {
         this.valorTotalCompra = 0;
         this.listaProdutosSelecionados = [];
     }
+
+    finalizarCompra() {
+        if (this.listaProdutosSelecionados.length > 0) {
+            this.router.navigateByUrl('menu/venda/confirmacao-venda', {
+                state:
+                    { listaProdutosSelecionados: this.listaProdutosSelecionados }
+            });
+        } else {
+            alert('Carinho vazio');
+        }
+    }
+
 
 }

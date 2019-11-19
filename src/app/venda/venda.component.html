@@ -38,12 +38,10 @@
     <div class="col-md-12">
         <div class="text-right">
             <div>
-                <span>Valor total: R$ {{valorTotalCompra}}</span>
-                <br/>
+                <p class="valorTotal">Valor total: R$ {{valorTotalCompra}}</p>
             </div>
-            <br/>
             <button class="btn btn-danger mr-2" (click)="limparListaCompra()">Limpar</button>
-            <button class="btn btn-success">Finalizar Compra</button>
+            <button class="btn btn-success" (click)="finalizarCompra()" >Finalizar Compra</button>
         </div>
     </div>
 </div>
