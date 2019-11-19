@@ -1,27 +1,42 @@
-# MercadoFront
+# Mercadinho On-Line
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.13.
+O sistema Mercadinho Online, foi desenvolvido com base na necessidade constante de praticidade no dia a dia das pessoas, fazendo que faça compras no conforto de sua casa.
 
-## Development server
+## Softwares necessários
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+- Banco Postgres sql (v.10 +)
+- Java 8;
+- Netbeans(caso queira rodar o projeto via IDE e também gerar o .jar)
+- Node js v.12 +  [https://nodejs.org/en/]
+- Angular v 8 (após instalar o nodejs, no terminal escreva o seguinte comando 
+- npm install -g @angular/cli
+```
+## Links 
+[Postgres](https://www.postgresql.org/download/)
 
-## Code scaffolding
+[Java](https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Node.js](https://nodejs.org/en/)
 
-## Build
+[Angular](https://cli.angular.io/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Backend
+```bash
+Na IDE(Netbeans) abra o projeto, e clique em “limpar e construir”(clean and build)  e espere ele terminar de baixar as dependências necessárias.
+E depois rode o projeto normalmente. (Lembrando que o banco deve estar configurado).
+```
+## Frontend
+```bash
+Abra a pasta do projeto no terminal e digite o comando npm install, com isso o node irá baixar e instalar todas as dependências necessárias para rodar o projeto.
+Depois de concluído da instalação concluída, no terminal escreva “ng serve”.  E conseguirá acessar o sistema no navegador(Google Chorme, Mozilla, Opera) através do endereço
+“http://localhost:4200/” .
+```
 
-## Running unit tests
+## Contribuindo
+Davidson Denis Ferreira Guimarães
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Bruna de Sousa da Costa
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Licença
+[MIT](https://choosealicense.com/licenses/mit/)

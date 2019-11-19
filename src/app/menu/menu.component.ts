@@ -31,7 +31,12 @@ export class MenuComponent implements OnInit {
     }
 
     rotaMenuInicial(): void{
+        sessionStorage.removeItem('listaProdutosSelecionados');
         this.router.navigateByUrl('/menu/venda/venda-produtos');
+    }
+    
+    rotaHistoricoVenda(){
+        this.router.navigateByUrl('menu/historico/historico-vendas');
     }
 
     sair(): void {

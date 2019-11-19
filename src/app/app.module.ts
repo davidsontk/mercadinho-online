@@ -14,6 +14,7 @@ import { LoginService } from './login/login.service';
 
 import { MenuComponent } from './menu/menu.component';
 import { VendaService } from './venda/venda.service';
+import { HistoricoVendaService } from './historico-venda/historico-venda.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { VendaService } from './venda/venda.service';
     CadastroModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CadastroService, LoginService, VendaService],
+  providers: [CadastroService, LoginService, VendaService, HistoricoVendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

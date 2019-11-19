@@ -27,6 +27,10 @@ export const appRoutes: Routes = [
                 path: 'venda',
                 loadChildren: './venda/venda.module#VendaModule' 
             },
+            {
+                path:'historico',
+                loadChildren:'./historico-venda/historico-venda.module#HistoricoVendaModule'
+            }
         ]
     },
     

@@ -1,0 +1,21 @@
+<div class="row m-0">
+    <h3>Histórico de Vendas</h3>
+</div>
+<div class="row m-0">
+    <div class="table-overflow table-border">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="text-center">Descrição</th>
+                    <th scope="col" class="text-center">Data e Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dado of listaHistorico">
+                    <th scope="row" class="text-center">{{dado.descricao}}</th>
+                    <td scope="row" class="text-center"> {{ dado.dataHora | date: 'dd/MM/yyyy HH:mm'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

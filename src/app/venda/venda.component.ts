@@ -1,6 +1,6 @@
 import { VendaService } from './venda.service';
 import { Component, OnInit } from '@angular/core';
-import { VendaProduto } from '../shared/models/venda';
+import { VendaProduto } from '../shared/models/vendaProduto';
 import { Router } from '@angular/router';
 
 @Component({
@@ -85,10 +85,9 @@ export class VendaComponent implements OnInit {
 
     finalizarCompra() {
         if (this.listaProdutosSelecionados.length > 0) {
-            this.router.navigateByUrl('menu/venda/confirmacao-venda', {
-                state:
-                    { listaProdutosSelecionados: this.listaProdutosSelecionados }
-            });
+            sessionStorage.setItem('listaProdutosSelecionados', JSON.stringify(this.listaProdutosSelecionados));
+            this.router.navigateByUrl('menu/venda/confirmacao-venda');
+
         } else {
             alert('Carinho vazio');
         }
